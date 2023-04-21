@@ -47,9 +47,13 @@ extension ExpensesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseableCell", for: indexPath)
-        cell.textLabel?.text = "\(expenses[indexPath.row])"
+        
+        var configuration = cell.defaultContentConfiguration()
+        configuration.text = "\(expenses[indexPath.row])"
+        
+        cell.contentConfiguration = configuration
+        
         return cell
     }
     
